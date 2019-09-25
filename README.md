@@ -162,7 +162,7 @@ Run with custom settings:
 docker run -dit \
  --stop-timeout 60 \
  -e "JAVA_OPTIONS=-Djava.security.egd=file:/dev/./urandom -Xms1024m -Xmx1024m" \
- --name springboot-example.$(date +%F) \
+ --name springboot-example \
  --network=bridge \
  -p 8080:8080/tcp \
  springboot-example:latest
