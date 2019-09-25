@@ -8,6 +8,49 @@ FYI https://spring.io/guides/gs/spring-boot-docker/
 
 ***
 
+#### Prepare
+
+Docker Image Oracle Linux 7 with Oracle Server JRE:
+
+```console
+mkdir ~/oraclejava; cd ~/oraclejava
+
+# Dockerfile
+cat <<EOF > Dockerfile
+FROM oraclelinux:7-slim
+ 
+MAINTAINER Lagutin R.A. <rlagutin@mta4.ru>
+ 
+ENV JAVA_PKG=server-jre-8u*-linux-x64.tar.gz \
+JAVA_HOME=/usr/java/default
+ 
+ADD $JAVA_PKG /usr/java/
+ 
+RUN yum -y install rootfiles tar gzip && \
+rm -rf /var/cache/yum/* && \
+export JAVA_DIR=$(ls -1 -d /usr/java/*) && \
+ln -s $JAVA_DIR /usr/java/latest && \
+ln -s $JAVA_DIR /usr/java/default && \
+alternatives --install /usr/bin/java java $JAVA_DIR/bin/java 20000 && \
+alternatives --install /usr/bin/javac javac $JAVA_DIR/bin/javac 20000 && \
+alternatives --install /usr/bin/jar jar $JAVA_DIR/bin/jar 20000
+EOF
+
+# Download Oracle Server JRE (example Java server-jre 1.8.0.172)
+# http://download.oracle.com/otn/java/jdk/8u172-b11/a58eab1ec242421181065cdc37240b08/server-jre-8u172-linux-x64.tar.gz
+cp server-jre-8u172-linux-x64.tar.gz ~/oraclejava/
+
+# create docker image OracleJava (all required packages installed from oracle repo yum.oracle.com):
+docker build -t oracle/serverjre:8 .
+
+# result
+docker image ls
+REPOSITORY TAG IMAGE ID CREATED SIZE
+oracle/serverjre 8 fca1db36746d 5 days ago 280MB # base image + server jre
+oraclelinux 7-slim 874477adb545 2 weeks ago 118MB # base image
+```
+
+
 
 
 
