@@ -22,7 +22,7 @@ mkdir ~/oraclejava; cd ~/oraclejava
 ```
 ```bash
 # Dockerfile
-cat <<EOF > Dockerfile
+cat > Dockerfile # ctrl+d
 FROM oraclelinux:7-slim
  
 MAINTAINER Lagutin R.A. <rlagutin@mta4.ru>
@@ -40,7 +40,6 @@ ln -s $JAVA_DIR /usr/java/default && \
 alternatives --install /usr/bin/java java $JAVA_DIR/bin/java 20000 && \
 alternatives --install /usr/bin/javac javac $JAVA_DIR/bin/javac 20000 && \
 alternatives --install /usr/bin/jar jar $JAVA_DIR/bin/jar 20000
-EOF
 ```
 ```console
 # Download Oracle Server JRE (example Java server-jre 1.8.0.172)
