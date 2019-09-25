@@ -2,7 +2,7 @@
 ```
 ```
 This Docker image is intended for running a Spring Boot application.
->	* Base image oraclelinux:7-slim
+>	* Base image oracle/serverjre:8
 
 FYI https://spring.io/guides/gs/spring-boot-docker/
 
@@ -11,6 +11,11 @@ FYI https://spring.io/guides/gs/spring-boot-docker/
 #### Prepare
 
 Docker Image Oracle Linux 7 with Oracle Server JRE:
+
+This repository contains a sample Docker configuration to facilitate installation and environment setup for DevOps users. This project includes a Dockerfile for Server JRE 8 based on Oracle Linux with include <b>package rootfiles</b> (for enable root bash profile).
+>	* Base image oraclelinux:7-slim
+
+FYI: https://github.com/rlagutinhub/docker.oraclejava
 
 ```console
 mkdir ~/oraclejava; cd ~/oraclejava
