@@ -1,7 +1,7 @@
 # Spring Boot Application on Docker
 ```
 ```
-This image is intended to be used for displaying x11 applications from container in a browser.
+This image is intended for running a Spring Boot application.
 >	* Base image oraclelinux:7-slim
 
 FYI https://spring.io/guides/gs/spring-boot-docker/
