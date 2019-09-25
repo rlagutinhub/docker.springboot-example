@@ -1,0 +1,10 @@
+FROM oracle/serverjre:8
+MAINTAINER Lagutin R.A. <rlagutin@mta4.ru>
+ARG JAR_FILE
+ARG APPLICATION_YML_FILE
+ARG APPLICATION_DB_YML_FILE
+ADD ${JAR_FILE} app.jar
+ADD ${APPLICATION_YML_FILE} application.yml
+ADD ${APPLICATION_DB_YML_FILE} application-db.yml
+VOLUME /logs
+ENTRYPOINT ["java","-jar","/app.jar","-Xms256m","-Xmx2048m", "--spring.config.location=/application.yml"]

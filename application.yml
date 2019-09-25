@@ -1,0 +1,21 @@
+service:
+  version: "@service.version@"
+  exampleWsdl: http://example-srv.example.com/ws/example.wsdl
+management:
+  security:
+    enabled: false
+spring:
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.Oracle10gDialect
+        format_sql: true
+  jackson:
+    serialization:
+      indent_output: true
+  profiles:
+    include: db
+
+scheduled:
+  extData: 0 0 1 0/2 * ?
+  transferToTshed: 0 0 1 2 3 ?

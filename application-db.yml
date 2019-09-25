@@ -1,0 +1,9 @@
+db:
+  example-db:
+    driver-class-name: oracle.jdbc.OracleDriver
+    jdbcUrl: jdbc:oracle:thin:@db.example.com:1521:example
+    username: username
+    password: passw0rd
+    testOnBorrow: true
+    validationQuery: SELECT 'Hellow World!' from EXAMPLE
+    continue-on-error: true
