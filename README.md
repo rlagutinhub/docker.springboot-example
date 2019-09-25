@@ -17,10 +17,10 @@ This repository contains a sample Docker configuration to facilitate installatio
 
 FYI: https://github.com/rlagutinhub/docker.oraclejava
 
-```console
+```bash
 mkdir ~/oraclejava; cd ~/oraclejava
 ```
-```console
+```bash
 cat > Dockerfile
 FROM oraclelinux:7-slim
 
@@ -40,14 +40,14 @@ RUN yum -y install rootfiles tar gzip && \
     alternatives --install /usr/bin/javac javac $JAVA_DIR/bin/javac 20000 && \
     alternatives --install /usr/bin/jar jar $JAVA_DIR/bin/jar 20000
 ```
-```console
+```bash
 wget http://download.oracle.com/otn/java/jdk/8u172-b11/a58eab1ec242421181065cdc37240b08/server-jre-8u172-linux-x64.tar.gz
 cp server-jre-8u172-linux-x64.tar.gz ~/oraclejava/
 ```
-```console
+```bash
 docker build -t oracle/serverjre:8 .
 ```
-```console
+```bash
 docker image ls
 REPOSITORY TAG IMAGE ID CREATED SIZE
 oracle/serverjre 8 fca1db36746d 5 days ago 280MB # base image + server jre
@@ -70,7 +70,6 @@ cd into gs-spring-boot/initial
 mvn package
 ```
 ```bash
-# copy jar file to root of this repository
 cp target/gs-spring-boot-0.1.0.jar ~/docker.springboot-example/app.jar
 ```
 
