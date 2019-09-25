@@ -126,7 +126,7 @@ spring:
 
 scheduled:
   extData: 0 0 1 0/2 * ?
-  transferToTshed: 0 0 1 2 3 ?
+  transferToExample: 0 0 1 2 3 ?
 ```
 ```vim application-db.yml```
 * db connection properties file
