@@ -125,6 +125,30 @@ db:
 * java parameters are set through system environment variable
 * default ```-Djava.security.egd=file:/dev/./urandom -Xms256m -Xmx2048m```
 
+
+***
+
+## Usage
+
+### Standalone
+Run with custom settings:
+```bash
+docker run -dit \
+ --stop-timeout 60 \
+ -e "JAVA_OPTIONS=-Djava.security.egd=file:/dev/./urandom -Xms1024m -Xmx1024m"
+ --name springboot-example.$(date +%F) \
+ --network=bridge \
+ -p 8080:8080/tcp \
+ springboot-example:latest
+```
+### Docker Swarm Mode
+Run with custom settings:
+```bash
+123
+```
+
+
+
 # build
 docker build --build-arg JAR_FILE="app.jar" --build-arg RUN_FILE="app.sh" --build-arg APPLICATION_YML_FILE="application.yml" --build-arg APPLICATION_DB_YML_FILE="application-db.yml" -f Dockerfile -t springboot-example:latest .
 
