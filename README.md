@@ -41,16 +41,13 @@ RUN yum -y install rootfiles tar gzip && \
     alternatives --install /usr/bin/jar jar $JAVA_DIR/bin/jar 20000
 ```
 ```console
-# Download Oracle Server JRE (example Java server-jre 1.8.0.172)
 wget http://download.oracle.com/otn/java/jdk/8u172-b11/a58eab1ec242421181065cdc37240b08/server-jre-8u172-linux-x64.tar.gz
 cp server-jre-8u172-linux-x64.tar.gz ~/oraclejava/
 ```
 ```console
-# create docker image OracleJava (all required packages installed from oracle repo yum.oracle.com):
 docker build -t oracle/serverjre:8 .
 ```
 ```console
-# result
 docker image ls
 REPOSITORY TAG IMAGE ID CREATED SIZE
 oracle/serverjre 8 fca1db36746d 5 days ago 280MB # base image + server jre
