@@ -142,18 +142,71 @@ docker run -dit \
  springboot-example:latest
 ```
 ### Docker Swarm Mode
-Run with custom settings:
-```bash
-123
+Run with custom settings: ```docker stack deploy --compose-file docker-compose.yml springboot-example.$(date +%F)```
+```console
+version: '3.7'
+services:
+  app:
+    image: springboot-example:latest
+    volumes:
+      - logs:/logs
+    networks:
+       - proxy
+    environment:
+      - "JAVA_OPTIONS=-Djava.security.egd=file:/dev/./urandom -Xms1024m -Xmx1024m
+    configs:
+       - source: ws_example_application.yml
+         target: /application.yml
+       - source: ws_example_application-db.yml
+         target: /application-db.yml
+    stop_grace_period: 1m
+    deploy:
+      # mode: global
+      replicas: 1
+      update_config:
+        parallelism: 2
+        delay: 10s
+        order: start-first
+      restart_policy:
+        condition: on-failure
+        delay: 10s
+        max_attempts: 1
+        window: 120s
+      labels:
+        # https://docs.traefik.io/configuration/backends/docker/#on-containers
+        - "traefik.enable=true"
+        - "traefik.port=8080"
+        # - "traefik.weight=10"
+        - "traefik.frontend.rule=Host:ws-example.example.com,ws-example.test.example.com"
+        # - "traefik.frontend.rule=Host:ws-example.example.com,ws-example.test.example.com;PathPrefixStrip:/app"
+        - "traefik.frontend.entryPoints=http"
+        # - "traefik.frontend.entryPoints=http,https"
+        # - "traefik.frontend.headers.SSLRedirect=true"
+        # - "traefik.frontend.auth.basic.users=root:$$apr1$$mLRjS/wr$$QqrALWNDgW9alDmnb9DeK1"
+        # - "traefik.backend.loadbalancer.stickiness=true"
+        - "traefik.backend.loadbalancer.method=wrr"
+      # placement:
+        # constraints:
+          # - node.role == manager
+          # - node.role == worker
+          # - node.labels.springboot == true
+networks:
+  proxy:
+    external: true
+configs:
+  ws_example_application.yml:
+    external: true
+  ws_example_application-db.yml:
+    external: true
+volumes:
+  logs:
+    external: true
+
 ```
 
+***
 
+## Result
 
-# build
-docker build --build-arg JAR_FILE="app.jar" --build-arg RUN_FILE="app.sh" --build-arg APPLICATION_YML_FILE="application.yml" --build-arg APPLICATION_DB_YML_FILE="application-db.yml" -f Dockerfile -t springboot-example:latest .
+Open a browser and see the xterm and firefox demo at http://<server>
 
-# run
-docker run -dit --stop-timeout 30 --name springboot-example.$(date +%F) --network bridge -p 8080:8080/tcp springboot-example:latest
-
-# chek url
-http://localhost:8080
