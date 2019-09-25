@@ -59,10 +59,26 @@ oracle/serverjre 8 fca1db36746d 5 days ago 280MB # base image + server jre
 oraclelinux 7-slim 874477adb545 2 weeks ago 118MB # base image
 ```
 
+### Building an example Application with Spring Boot:
 
+Build a simple web application with Spring Boot 
 
+FYI https://spring.io/guides/gs/spring-boot/
 
+```bash
+apt install openjdk-11-jre openjdk-11-jdk-headless
+apt install maven
+```
+```bash
+git clone https://github.com/spring-guides/gs-spring-boot.git
+cd into gs-spring-boot/initial
+mvn package
+```
+```bash
+# copy jar file to root of this repository
+cp target/gs-spring-boot-0.1.0.jar ~/docker.springboot-example/app.jar
 
+```
 # build
 docker build --build-arg JAR_FILE="app.jar" --build-arg RUN_FILE="app.sh" --build-arg APPLICATION_YML_FILE="application.yml" --build-arg APPLICATION_DB_YML_FILE="application-db.yml" -f Dockerfile -t springboot-example:latest .
 
