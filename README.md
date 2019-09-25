@@ -153,7 +153,7 @@ services:
     networks:
        - proxy
     environment:
-      - "JAVA_OPTIONS=-Djava.security.egd=file:/dev/./urandom -Xms1024m -Xmx1024m
+      - "JAVA_OPTIONS=-Djava.security.egd=file:/dev/./urandom -Xms1024m -Xmx1024m"
     configs:
        - source: ws_example_application.yml
          target: /application.yml
