@@ -1,4 +1,4 @@
-# noVNC Display Container
+# Spring Boot Application on Docker
 ```
 ```
 This image is intended to be used for displaying x11 applications from container in a browser.
