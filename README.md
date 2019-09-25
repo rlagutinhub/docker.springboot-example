@@ -1,7 +1,7 @@
 # Spring Boot Application on Docker
 ```
 ```
-This image is intended for running a Spring Boot application.
+This Docker image is intended for running a Spring Boot application.
 >	* Base image oraclelinux:7-slim
 
 FYI https://spring.io/guides/gs/spring-boot-docker/
