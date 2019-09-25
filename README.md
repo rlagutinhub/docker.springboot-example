@@ -84,7 +84,7 @@ cp target/gs-spring-boot-0.1.0.jar ~/docker.springboot-example/app.jar
 ## Properties
 
 ```vim application.yml```
-* main properties file
+* application properties file
 ```console
 service:
   version: "@service.version@"
@@ -121,7 +121,9 @@ db:
     validationQuery: SELECT 'Hellow World!' from EXAMPLE
     continue-on-error: true
 ```
-
+```java options```
+* Java parameters are set through system environment variable
+* default ```-Djava.security.egd=file:/dev/./urandom -Xms256m -Xmx2048m```
 
 # build
 docker build --build-arg JAR_FILE="app.jar" --build-arg RUN_FILE="app.sh" --build-arg APPLICATION_YML_FILE="application.yml" --build-arg APPLICATION_DB_YML_FILE="application-db.yml" -f Dockerfile -t springboot-example:latest .
