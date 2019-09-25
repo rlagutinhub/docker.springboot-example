@@ -20,8 +20,8 @@ FYI: https://github.com/rlagutinhub/docker.oraclejava
 ```console
 mkdir ~/oraclejava; cd ~/oraclejava
 ```
-```cat > Dockerfile```
 ```console
+cat > Dockerfile
 FROM oraclelinux:7-slim
 
 MAINTAINER Lagutin R.A. <rlagutin@mta4.ru>
