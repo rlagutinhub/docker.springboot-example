@@ -84,7 +84,7 @@ cp target/gs-spring-boot-0.1.0.jar ~/docker.springboot-example/app.jar
 ## Properties
 
 ```vim application.yml```
-* Main properties file
+* main properties file
 ```console
 service:
   version: "@service.version@"
