@@ -123,7 +123,6 @@ spring:
       indent_output: true
   profiles:
     include: db
-
 scheduled:
   extData: 0 0 1 0/2 * ?
   transferToExample: 0 0 1 2 3 ?
