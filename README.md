@@ -79,6 +79,21 @@ mvn package
 cp target/gs-spring-boot-0.1.0.jar ~/docker.springboot-example/app.jar
 ```
 
+### Building Docker image:
+
+```./build.sh "app.jar" "app.sh" "application.yml" "application-db.yml" "Dockerfile" "springboot.example:latest" "/root/docker/docker.springboot-example"```
+or
+```bash
+docker build \
+  --build-arg JAR_FILE="app.jar" \
+  --build-arg RUN_FILE="app.sh" \
+  --build-arg APPLICATION_YML_FILE="application.yml" \
+  --build-arg APPLICATION_DB_YML_FILE="application-db.yml" \
+  -f Dockerfile \
+  -t springboot.example \
+  .
+```
+
 ***
 
 ## Properties
