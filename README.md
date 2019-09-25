@@ -83,7 +83,44 @@ cp target/gs-spring-boot-0.1.0.jar ~/docker.springboot-example/app.jar
 
 ## Properties
 
+```vim application.yml```
+* Main properties file
+```console
+service:
+  version: "@service.version@"
+  exampleWsdl: http://example-srv.example.com/ws/example.wsdl
+management:
+  security:
+    enabled: false
+spring:
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.Oracle10gDialect
+        format_sql: true
+  jackson:
+    serialization:
+      indent_output: true
+  profiles:
+    include: db
 
+scheduled:
+  extData: 0 0 1 0/2 * ?
+  transferToTshed: 0 0 1 2 3 ?
+```
+```vim application-db.yml```
+* db connection properties file
+```console
+db:
+  example-db:
+    driver-class-name: oracle.jdbc.OracleDriver
+    jdbcUrl: jdbc:oracle:thin:@db.example.com:1521:example
+    username: username
+    password: passw0rd
+    testOnBorrow: true
+    validationQuery: SELECT 'Hellow World!' from EXAMPLE
+    continue-on-error: true
+```
 
 
 # build
