@@ -142,7 +142,7 @@ docker run -dit \
  springboot-example:latest
 ```
 ### Docker Swarm Mode
-Run with custom settings: ```docker stack deploy --compose-file docker-compose.yml springboot-example.$(date +%F)```
+Run with custom settings: ```docker stack deploy --compose-file docker-compose.yml springboot-example```
 ```console
 version: '3.7'
 services:
