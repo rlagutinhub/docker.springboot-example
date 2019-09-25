@@ -81,8 +81,19 @@ cp target/gs-spring-boot-0.1.0.jar ~/docker.springboot-example/app.jar
 
 ### Building Docker image:
 
-```./build.sh "app.jar" "app.sh" "application.yml" "application-db.yml" "Dockerfile" "springboot.example:latest" "/root/docker/docker.springboot-example"```
+```bash
+./build.sh \
+ "app.jar" \
+ "app.sh" \
+ "application.yml" \
+ "application-db.yml" \
+ "Dockerfile" \
+ "springboot.example:latest" \
+ "/root/docker/docker.springboot-example"
+```
+
 or
+
 ```bash
 docker build \
   --build-arg JAR_FILE="app.jar" \
