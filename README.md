@@ -208,5 +208,14 @@ volumes:
 
 ## Result
 
-Open a browser and see the xterm and firefox demo at http://<server>
+Open a browser and see the xterm and firefox demo at `http://<server>`
 
+![alt text](https://raw.githubusercontent.com/rlagutinhub/docker.springboot-example/master/screen1.png)
+![alt text](https://raw.githubusercontent.com/rlagutinhub/docker.springboot-example/master/screen2.png)
+
+https://raw.githubusercontent.com/rlagutinhub/docker.springboot-example/master/example.run.log
+
+## On DockerHub / GitHub
+___
+* DockerHub [rlagutinhub/docker.springboot-example](https://hub.docker.com/r/rlagutinhub/docker.springboot-example)
+* GitHub [rlagutinhub/docker.springboot-example](https://github.com/rlagutinhub/docker.springboot-example)
