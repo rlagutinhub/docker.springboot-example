@@ -14,7 +14,8 @@ Docker Image Oracle Linux 7 with Oracle Server JRE:
 
 ```console
 mkdir ~/oraclejava; cd ~/oraclejava
-
+```
+```bash
 # Dockerfile
 cat <<EOF > Dockerfile
 FROM oraclelinux:7-slim
@@ -35,14 +36,17 @@ alternatives --install /usr/bin/java java $JAVA_DIR/bin/java 20000 && \
 alternatives --install /usr/bin/javac javac $JAVA_DIR/bin/javac 20000 && \
 alternatives --install /usr/bin/jar jar $JAVA_DIR/bin/jar 20000
 EOF
-
+```
+```console
 # Download Oracle Server JRE (example Java server-jre 1.8.0.172)
-# http://download.oracle.com/otn/java/jdk/8u172-b11/a58eab1ec242421181065cdc37240b08/server-jre-8u172-linux-x64.tar.gz
+wget http://download.oracle.com/otn/java/jdk/8u172-b11/a58eab1ec242421181065cdc37240b08/server-jre-8u172-linux-x64.tar.gz
 cp server-jre-8u172-linux-x64.tar.gz ~/oraclejava/
-
+```
+```console
 # create docker image OracleJava (all required packages installed from oracle repo yum.oracle.com):
 docker build -t oracle/serverjre:8 .
-
+```
+```console
 # result
 docker image ls
 REPOSITORY TAG IMAGE ID CREATED SIZE
