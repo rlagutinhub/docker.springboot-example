@@ -59,6 +59,11 @@ oracle/serverjre 8 fca1db36746d 5 days ago 280MB # base image + server jre
 oraclelinux 7-slim 874477adb545 2 weeks ago 118MB # base image
 ```
 
+***
+
+## Properties
+
+
 ### Building an example Application with Spring Boot:
 
 Build a simple web application with Spring Boot 
