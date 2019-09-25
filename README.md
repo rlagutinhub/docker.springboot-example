@@ -122,7 +122,7 @@ db:
     continue-on-error: true
 ```
 ```java options```
-* Java parameters are set through system environment variable
+* java parameters are set through system environment variable
 * default ```-Djava.security.egd=file:/dev/./urandom -Xms256m -Xmx2048m```
 
 # build
