@@ -22,6 +22,8 @@ mkdir ~/oraclejava; cd ~/oraclejava
 ```
 ```bash
 cat > Dockerfile
+```
+```console
 FROM oraclelinux:7-slim
 
 MAINTAINER Lagutin R.A. <rlagutin@mta4.ru>
