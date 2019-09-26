@@ -56,8 +56,6 @@ oraclelinux 7-slim 874477adb545 2 weeks ago 118MB # base image
 
 ### Building an example Application with Spring Boot:
 
-Build a simple web application with Spring Boot 
-
 FYI https://spring.io/guides/gs/spring-boot/
 
 ```bash
@@ -228,7 +226,7 @@ volumes:
 
 ## Result
 
-Open a browser and see the xterm and firefox demo at `http://<server>`
+Open a browser and see the demo at `http://<server>`
 
 ![alt text](https://raw.githubusercontent.com/rlagutinhub/docker.springboot-example/master/screen1.png)
 ![alt text](https://raw.githubusercontent.com/rlagutinhub/docker.springboot-example/master/screen2.png)
