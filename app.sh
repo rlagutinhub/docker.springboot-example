@@ -28,7 +28,7 @@ function _kill() {
 
    echo "SIGKILL received, shutting down the server!"
    kill -9 $childPID
-   exit 137 # 128+9
+   # exit 137 # 128+9
 
 }
 
